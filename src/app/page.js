@@ -1,9 +1,19 @@
 import Image from 'next/image'
 import styles from './page.module.css'
-
+import Script from "next/script"
 export default function Home() {
   return (
     <main className={styles.main}>
+      <Script src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID" />
+      <Script id="google-analytics">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+ 
+          gtag('config', 'GA_MEASUREMENT_ID');
+        `}
+      </Script>
       <div className={styles.description}>
         <p>
           Get started by editing&nbsp;
